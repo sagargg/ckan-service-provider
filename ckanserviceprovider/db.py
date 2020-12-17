@@ -318,6 +318,8 @@ def _validate_error(error):
             message = error["message"]
             if isinstance(message, str):
                 return error
+            elif isinstance(message, unicode):
+                return error
             else:
                 raise InvalidErrorObjectError(
                     "error['message'] must be a string")
